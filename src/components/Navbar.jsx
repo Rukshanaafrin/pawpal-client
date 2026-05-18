@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useContext } from "react";
+import { usePathname } from "next/navigation";
 import { AuthContext } from "@/providers/AuthProvider";
 import { Search } from "lucide-react";
 
@@ -9,8 +10,11 @@ const Navbar = () => {
 
   const { user, logOut } = useContext(AuthContext);
 
+  const pathname = usePathname();
+
   return (
-    <div className="navbar px-8 py-3 text-white border-b border-purple-400/20 bg-gradient-to-r from-purple-900/40 via-fuchsia-900/30 to-indigo-900/40 backdrop-blur-xl shadow-lg">
+
+    <div className="navbar sticky top-0 z-50 px-8 py-3 text-white border-b border-purple-400/20 bg-gradient-to-r from-purple-900/40 via-fuchsia-900/30 to-indigo-900/40 backdrop-blur-xl shadow-lg">
 
       <div className="flex-1 flex items-center gap-3">
 
@@ -31,22 +35,37 @@ const Navbar = () => {
 
       <div className="flex items-center gap-6 text-lg">
 
+        {/* HOME */}
+
         <Link
           href="/"
-          className="hover:text-cyan-300 duration-300"
+          className={`font-semibold duration-300 ${
+            pathname === "/"
+              ? "text-cyan-300"
+              : "text-white hover:text-cyan-300"
+          }`}
         >
           Home
         </Link>
 
-        <div className="flex items-center gap-1 hover:text-cyan-300 duration-300">
+        {/* ALL PETS */}
+
+        <Link
+          href="/pets"
+          className={`flex items-center gap-1 font-semibold duration-300 ${
+            pathname === "/pets"
+              ? "text-cyan-300"
+              : "text-white hover:text-cyan-300"
+          }`}
+        >
 
           <Search size={18} />
 
-          <Link href="/pets">
-            All Pets
-          </Link>
+          All Pets
 
-        </div>
+        </Link>
+
+        {/* USER LINKS */}
 
         {
           user && (
@@ -68,8 +87,11 @@ const Navbar = () => {
           )
         }
 
+        {/* LOGIN / USER */}
+
         {
           user ? (
+
             <div className="flex items-center gap-3">
 
               <img
@@ -80,19 +102,22 @@ const Navbar = () => {
 
               <button
                 onClick={logOut}
-                className="btn btn-info text-white"
+                className="btn bg-cyan-400 hover:bg-cyan-500 border-none text-white"
               >
                 Logout
               </button>
 
             </div>
+
           ) : (
+
             <Link
               href="/login"
-              className="btn btn-info text-white"
+              className="btn bg-cyan-400 hover:bg-cyan-500 border-none text-white"
             >
               Login
             </Link>
+
           )
         }
 
