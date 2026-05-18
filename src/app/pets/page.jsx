@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function PetsPage() {
   return (
     <div className="px-10 lg:px-20 py-16">
@@ -35,9 +37,12 @@ export default function PetsPage() {
               Location: Dhaka
             </p>
 
-            <button className="btn bg-cyan-400 hover:bg-cyan-500 border-none text-white w-full">
+            <Link
+              href="/pets/1"
+              className="btn bg-cyan-400 hover:bg-cyan-500 border-none text-white w-full"
+            >
               View Details
-            </button>
+            </Link>
 
           </div>
 
@@ -70,9 +75,12 @@ export default function PetsPage() {
               Location: Chittagong
             </p>
 
-            <button className="btn bg-pink-400 hover:bg-pink-500 border-none text-white w-full">
+            <Link
+              href="/pets/2"
+              className="btn bg-pink-400 hover:bg-pink-500 border-none text-white w-full"
+            >
               View Details
-            </button>
+            </Link>
 
           </div>
 
@@ -105,9 +113,12 @@ export default function PetsPage() {
               Location: Sylhet
             </p>
 
-            <button className="btn bg-blue-400 hover:bg-blue-500 border-none text-white w-full">
+            <Link
+              href="/pets/3"
+              className="btn bg-blue-400 hover:bg-blue-500 border-none text-white w-full"
+            >
               View Details
-            </button>
+            </Link>
 
           </div>
 
@@ -140,9 +151,12 @@ export default function PetsPage() {
               Location: Rajshahi
             </p>
 
-            <button className="btn bg-purple-400 hover:bg-purple-500 border-none text-white w-full">
+            <Link
+              href="/pets/4"
+              className="btn bg-purple-400 hover:bg-purple-500 border-none text-white w-full"
+            >
               View Details
-            </button>
+            </Link>
 
           </div>
 
@@ -175,9 +189,12 @@ export default function PetsPage() {
               Location: Khulna
             </p>
 
-            <button className="btn bg-cyan-400 hover:bg-cyan-500 border-none text-white w-full">
+            <Link
+              href="/pets/5"
+              className="btn bg-cyan-400 hover:bg-cyan-500 border-none text-white w-full"
+            >
               View Details
-            </button>
+            </Link>
 
           </div>
 
@@ -210,9 +227,12 @@ export default function PetsPage() {
               Location: Barishal
             </p>
 
-            <button className="btn bg-pink-400 hover:bg-pink-500 border-none text-white w-full">
+            <Link
+              href="/pets/6"
+              className="btn bg-pink-400 hover:bg-pink-500 border-none text-white w-full"
+            >
               View Details
-            </button>
+            </Link>
 
           </div>
 
@@ -245,9 +265,12 @@ export default function PetsPage() {
               Location: Rangpur
             </p>
 
-            <button className="btn bg-blue-400 hover:bg-blue-500 border-none text-white w-full">
+            <Link
+              href="/pets/7"
+              className="btn bg-blue-400 hover:bg-blue-500 border-none text-white w-full"
+            >
               View Details
-            </button>
+            </Link>
 
           </div>
 
@@ -280,9 +303,12 @@ export default function PetsPage() {
               Location: Mymensingh
             </p>
 
-            <button className="btn bg-purple-400 hover:bg-purple-500 border-none text-white w-full">
+            <Link
+              href="/pets/8"
+              className="btn bg-purple-400 hover:bg-purple-500 border-none text-white w-full"
+            >
               View Details
-            </button>
+            </Link>
 
           </div>
 
