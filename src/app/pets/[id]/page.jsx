@@ -1,6 +1,14 @@
+"use client";
+
+import React, { useContext } from "react";
 import Link from "next/link";
-export default async function PetDetailsPage({ params }) {
-    
+import { AuthContext } from "@/providers/AuthProvider";
+
+export default function PetDetailsPage({ params }) {
+
+    const { user } = useContext(AuthContext);
+
+    const { id } = React.use(params);
 
     const pets = [
         {
@@ -100,8 +108,6 @@ export default async function PetDetailsPage({ params }) {
         },
     ];
 
-    const { id } = await params;
-
     const pet = pets.find(
         (singlePet) => singlePet.id === Number(id)
     );
@@ -173,10 +179,10 @@ export default async function PetDetailsPage({ params }) {
 
                         </div>
 
-                       
                         <Link
-                            href={`/adopt/${pet.id}`}
-                            className="btn bg-cyan-400 hover:bg-cyan-500 border-none text-white mt-10 w-fit px-10">
+                            href={user ? `/adopt/${pet.id}` : "/login"}
+                            className="btn bg-cyan-400 hover:bg-cyan-500 border-none text-white mt-10 w-fit px-10"
+                        >
                             Adopt Now
                         </Link>
 
