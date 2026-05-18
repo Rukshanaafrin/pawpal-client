@@ -1,13 +1,20 @@
 "use client";
 
-import { useContext } from "react";
+import Link from "next/link";
+import { useContext, useState } from "react";
+import { Eye, EyeOff } from "lucide-react";
 import { AuthContext } from "../../providers/AuthProvider";
 
 const LoginPage = () => {
 
   const { signInUser } = useContext(AuthContext);
 
+  const [showPassword, setShowPassword] = useState(false);
+
   const handleLogin = (e) => {
+
+    console.log("clicked");
+
     e.preventDefault();
 
     const form = e.target;
@@ -17,40 +24,120 @@ const LoginPage = () => {
 
     signInUser(email, password)
       .then((result) => {
+
         console.log(result.user);
+
+        alert("Login Successful!");
+
+        form.reset();
+
       })
       .catch((error) => {
+
         console.log(error.message);
+
+        alert(error.message);
+
       });
   };
 
   return (
-    <div>
-      <form onSubmit={handleLogin}>
 
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-        />
+    <div className="min-h-screen flex justify-center items-center px-4">
 
-        <br />
-        <br />
+      <div className="w-full max-w-md bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-8 shadow-2xl text-white">
 
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-        />
+        <h1 className="text-4xl font-extrabold text-center mb-8">
+          Welcome Back
+        </h1>
 
-        <br />
-        <br />
+        <form
+          onSubmit={handleLogin}
+          className="space-y-5"
+        >
 
-        <button type="submit">
-          Login
-        </button>
+          {/* EMAIL */}
 
-      </form>
+          <div>
+
+            <label className="block mb-2 font-semibold">
+              Email
+            </label>
+
+            <input
+              type="email"
+              name="email"
+              placeholder="Enter your email"
+              
+              className="input input-bordered w-full bg-white/10 text-white"
+              required
+            />
+
+          </div>
+
+          {/* PASSWORD */}
+
+          <div>
+
+            <label className="block mb-2 font-semibold">
+              Password
+            </label>
+
+            <div className="relative">
+
+              <input
+                type={showPassword ? "text" : "password"}
+                name="password"
+                placeholder="Enter your password"
+                autoComplete="new-password"
+                className="input input-bordered w-full h-12 bg-white/10 text-white pr-14"
+                required
+              />
+
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute right-4 top-4 text-black"
+              >
+
+                {
+                  showPassword
+                    ? <EyeOff size={20} />
+                    : <Eye size={20} />
+                }
+
+              </button>
+
+            </div>
+
+          </div>
+
+          {/* BUTTON */}
+
+          <button
+            type="submit"
+            className="btn bg-cyan-400 hover:bg-cyan-500 border-none text-white w-full mt-3 cursor-pointer"
+          >
+            Login
+          </button>
+
+        </form>
+
+        <p className="text-center text-gray-300 mt-6">
+
+          Don’t have an account?{" "}
+
+          <Link
+            href="/register"
+            className="text-cyan-300 hover:underline"
+          >
+            Register
+          </Link>
+
+        </p>
+
+      </div>
+
     </div>
   );
 };
