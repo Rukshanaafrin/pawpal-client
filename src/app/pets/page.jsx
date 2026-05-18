@@ -9,14 +9,16 @@ export default function PetsPage() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
 
         {/* PET 1 */}
-        <div className="bg-white/10 backdrop-blur-xl rounded-3xl overflow-hidden border border-white/20 shadow-2xl hover:scale-105 duration-300">
+        <div className="bg-[#1b2440]/90 backdrop-blur-xl rounded-3xl overflow-hidden border border-cyan-300/20 shadow-2xl hover:-translate-y-2 duration-300">
+
           <img
-            src="/assets/dog.png"
+            src="/assets/dog1.png"
             alt="dog"
             className="w-full h-64 object-cover"
           />
 
           <div className="p-6">
+
             <h2 className="text-3xl font-bold text-white mb-3">
               Max
             </h2>
@@ -36,18 +38,22 @@ export default function PetsPage() {
             <button className="btn bg-cyan-400 hover:bg-cyan-500 border-none text-white w-full">
               View Details
             </button>
+
           </div>
+
         </div>
 
         {/* PET 2 */}
-        <div className="bg-white/10 backdrop-blur-xl rounded-3xl overflow-hidden border border-white/20 shadow-2xl hover:scale-105 duration-300">
+        <div className="bg-[#2a1f45]/90 backdrop-blur-xl rounded-3xl overflow-hidden border border-pink-300/20 shadow-2xl hover:-translate-y-2 duration-300">
+
           <img
-            src="/assets/cat.png"
+            src="/assets/cat1.png"
             alt="cat"
             className="w-full h-64 object-cover"
           />
 
           <div className="p-6">
+
             <h2 className="text-3xl font-bold text-white mb-3">
               Luna
             </h2>
@@ -67,18 +73,22 @@ export default function PetsPage() {
             <button className="btn bg-pink-400 hover:bg-pink-500 border-none text-white w-full">
               View Details
             </button>
+
           </div>
+
         </div>
 
         {/* PET 3 */}
-        <div className="bg-white/10 backdrop-blur-xl rounded-3xl overflow-hidden border border-white/20 shadow-2xl hover:scale-105 duration-300">
+        <div className="bg-[#1f3048]/90 backdrop-blur-xl rounded-3xl overflow-hidden border border-blue-300/20 shadow-2xl hover:-translate-y-2 duration-300">
+
           <img
-            src="/assets/bird.png"
+            src="/assets/bird1.png"
             alt="bird"
             className="w-full h-64 object-cover"
           />
 
           <div className="p-6">
+
             <h2 className="text-3xl font-bold text-white mb-3">
               Coco
             </h2>
@@ -98,18 +108,22 @@ export default function PetsPage() {
             <button className="btn bg-blue-400 hover:bg-blue-500 border-none text-white w-full">
               View Details
             </button>
+
           </div>
+
         </div>
 
         {/* PET 4 */}
-        <div className="bg-white/10 backdrop-blur-xl rounded-3xl overflow-hidden border border-white/20 shadow-2xl hover:scale-105 duration-300">
+        <div className="bg-[#33224d]/90 backdrop-blur-xl rounded-3xl overflow-hidden border border-purple-300/20 shadow-2xl hover:-translate-y-2 duration-300">
+
           <img
-            src="/assets/rabbit.png"
+            src="/assets/rabbit1.png"
             alt="rabbit"
             className="w-full h-64 object-cover"
           />
 
           <div className="p-6">
+
             <h2 className="text-3xl font-bold text-white mb-3">
               Snowy
             </h2>
@@ -129,18 +143,22 @@ export default function PetsPage() {
             <button className="btn bg-purple-400 hover:bg-purple-500 border-none text-white w-full">
               View Details
             </button>
+
           </div>
+
         </div>
 
         {/* PET 5 */}
-        <div className="bg-white/10 backdrop-blur-xl rounded-3xl overflow-hidden border border-white/20 shadow-2xl hover:scale-105 duration-300">
+        <div className="bg-[#1b2440]/90 backdrop-blur-xl rounded-3xl overflow-hidden border border-cyan-300/20 shadow-2xl hover:-translate-y-2 duration-300">
+
           <img
-            src="/assets/dog.png"
+            src="/assets/dog2.png"
             alt="dog"
             className="w-full h-64 object-cover"
           />
 
           <div className="p-6">
+
             <h2 className="text-3xl font-bold text-white mb-3">
               Rocky
             </h2>
@@ -160,18 +178,22 @@ export default function PetsPage() {
             <button className="btn bg-cyan-400 hover:bg-cyan-500 border-none text-white w-full">
               View Details
             </button>
+
           </div>
+
         </div>
 
         {/* PET 6 */}
-        <div className="bg-white/10 backdrop-blur-xl rounded-3xl overflow-hidden border border-white/20 shadow-2xl hover:scale-105 duration-300">
+        <div className="bg-[#2a1f45]/90 backdrop-blur-xl rounded-3xl overflow-hidden border border-pink-300/20 shadow-2xl hover:-translate-y-2 duration-300">
+
           <img
-            src="/assets/cat.png"
+            src="/assets/cat2.png"
             alt="cat"
             className="w-full h-64 object-cover"
           />
 
           <div className="p-6">
+
             <h2 className="text-3xl font-bold text-white mb-3">
               Kitty
             </h2>
@@ -191,18 +213,22 @@ export default function PetsPage() {
             <button className="btn bg-pink-400 hover:bg-pink-500 border-none text-white w-full">
               View Details
             </button>
+
           </div>
+
         </div>
 
         {/* PET 7 */}
-        <div className="bg-white/10 backdrop-blur-xl rounded-3xl overflow-hidden border border-white/20 shadow-2xl hover:scale-105 duration-300">
+        <div className="bg-[#1f3048]/90 backdrop-blur-xl rounded-3xl overflow-hidden border border-blue-300/20 shadow-2xl hover:-translate-y-2 duration-300">
+
           <img
-            src="/assets/bird.png"
+            src="/assets/bird2.png"
             alt="bird"
             className="w-full h-64 object-cover"
           />
 
           <div className="p-6">
+
             <h2 className="text-3xl font-bold text-white mb-3">
               Kiwi
             </h2>
@@ -222,18 +248,22 @@ export default function PetsPage() {
             <button className="btn bg-blue-400 hover:bg-blue-500 border-none text-white w-full">
               View Details
             </button>
+
           </div>
+
         </div>
 
         {/* PET 8 */}
-        <div className="bg-white/10 backdrop-blur-xl rounded-3xl overflow-hidden border border-white/20 shadow-2xl hover:scale-105 duration-300">
+        <div className="bg-[#33224d]/90 backdrop-blur-xl rounded-3xl overflow-hidden border border-purple-300/20 shadow-2xl hover:-translate-y-2 duration-300">
+
           <img
-            src="/assets/rabbit.png"
+            src="/assets/rabbit2.png"
             alt="rabbit"
             className="w-full h-64 object-cover"
           />
 
           <div className="p-6">
+
             <h2 className="text-3xl font-bold text-white mb-3">
               Bunny
             </h2>
@@ -253,7 +283,9 @@ export default function PetsPage() {
             <button className="btn bg-purple-400 hover:bg-purple-500 border-none text-white w-full">
               View Details
             </button>
+
           </div>
+
         </div>
 
       </div>
