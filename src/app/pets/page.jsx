@@ -1,0 +1,263 @@
+export default function PetsPage() {
+  return (
+    <div className="px-10 lg:px-20 py-16">
+
+      <h1 className="text-5xl font-extrabold text-center text-white mb-14">
+        Available Pets
+      </h1>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        {/* PET 1 */}
+        <div className="bg-white/10 backdrop-blur-xl rounded-3xl overflow-hidden border border-white/20 shadow-2xl hover:scale-105 duration-300">
+          <img
+            src="/assets/dog.png"
+            alt="dog"
+            className="w-full h-64 object-cover"
+          />
+
+          <div className="p-6">
+            <h2 className="text-3xl font-bold text-white mb-3">
+              Max
+            </h2>
+
+            <p className="text-gray-200 mb-2">
+              Category: Dog
+            </p>
+
+            <p className="text-gray-200 mb-2">
+              Age: 2 Years
+            </p>
+
+            <p className="text-gray-200 mb-5">
+              Location: Dhaka
+            </p>
+
+            <button className="btn bg-cyan-400 hover:bg-cyan-500 border-none text-white w-full">
+              View Details
+            </button>
+          </div>
+        </div>
+
+        {/* PET 2 */}
+        <div className="bg-white/10 backdrop-blur-xl rounded-3xl overflow-hidden border border-white/20 shadow-2xl hover:scale-105 duration-300">
+          <img
+            src="/assets/cat.png"
+            alt="cat"
+            className="w-full h-64 object-cover"
+          />
+
+          <div className="p-6">
+            <h2 className="text-3xl font-bold text-white mb-3">
+              Luna
+            </h2>
+
+            <p className="text-gray-200 mb-2">
+              Category: Cat
+            </p>
+
+            <p className="text-gray-200 mb-2">
+              Age: 1 Year
+            </p>
+
+            <p className="text-gray-200 mb-5">
+              Location: Chittagong
+            </p>
+
+            <button className="btn bg-pink-400 hover:bg-pink-500 border-none text-white w-full">
+              View Details
+            </button>
+          </div>
+        </div>
+
+        {/* PET 3 */}
+        <div className="bg-white/10 backdrop-blur-xl rounded-3xl overflow-hidden border border-white/20 shadow-2xl hover:scale-105 duration-300">
+          <img
+            src="/assets/bird.png"
+            alt="bird"
+            className="w-full h-64 object-cover"
+          />
+
+          <div className="p-6">
+            <h2 className="text-3xl font-bold text-white mb-3">
+              Coco
+            </h2>
+
+            <p className="text-gray-200 mb-2">
+              Category: Bird
+            </p>
+
+            <p className="text-gray-200 mb-2">
+              Age: 8 Months
+            </p>
+
+            <p className="text-gray-200 mb-5">
+              Location: Sylhet
+            </p>
+
+            <button className="btn bg-blue-400 hover:bg-blue-500 border-none text-white w-full">
+              View Details
+            </button>
+          </div>
+        </div>
+
+        {/* PET 4 */}
+        <div className="bg-white/10 backdrop-blur-xl rounded-3xl overflow-hidden border border-white/20 shadow-2xl hover:scale-105 duration-300">
+          <img
+            src="/assets/rabbit.png"
+            alt="rabbit"
+            className="w-full h-64 object-cover"
+          />
+
+          <div className="p-6">
+            <h2 className="text-3xl font-bold text-white mb-3">
+              Snowy
+            </h2>
+
+            <p className="text-gray-200 mb-2">
+              Category: Rabbit
+            </p>
+
+            <p className="text-gray-200 mb-2">
+              Age: 1.5 Years
+            </p>
+
+            <p className="text-gray-200 mb-5">
+              Location: Rajshahi
+            </p>
+
+            <button className="btn bg-purple-400 hover:bg-purple-500 border-none text-white w-full">
+              View Details
+            </button>
+          </div>
+        </div>
+
+        {/* PET 5 */}
+        <div className="bg-white/10 backdrop-blur-xl rounded-3xl overflow-hidden border border-white/20 shadow-2xl hover:scale-105 duration-300">
+          <img
+            src="/assets/dog.png"
+            alt="dog"
+            className="w-full h-64 object-cover"
+          />
+
+          <div className="p-6">
+            <h2 className="text-3xl font-bold text-white mb-3">
+              Rocky
+            </h2>
+
+            <p className="text-gray-200 mb-2">
+              Category: Dog
+            </p>
+
+            <p className="text-gray-200 mb-2">
+              Age: 3 Years
+            </p>
+
+            <p className="text-gray-200 mb-5">
+              Location: Khulna
+            </p>
+
+            <button className="btn bg-cyan-400 hover:bg-cyan-500 border-none text-white w-full">
+              View Details
+            </button>
+          </div>
+        </div>
+
+        {/* PET 6 */}
+        <div className="bg-white/10 backdrop-blur-xl rounded-3xl overflow-hidden border border-white/20 shadow-2xl hover:scale-105 duration-300">
+          <img
+            src="/assets/cat.png"
+            alt="cat"
+            className="w-full h-64 object-cover"
+          />
+
+          <div className="p-6">
+            <h2 className="text-3xl font-bold text-white mb-3">
+              Kitty
+            </h2>
+
+            <p className="text-gray-200 mb-2">
+              Category: Cat
+            </p>
+
+            <p className="text-gray-200 mb-2">
+              Age: 10 Months
+            </p>
+
+            <p className="text-gray-200 mb-5">
+              Location: Barishal
+            </p>
+
+            <button className="btn bg-pink-400 hover:bg-pink-500 border-none text-white w-full">
+              View Details
+            </button>
+          </div>
+        </div>
+
+        {/* PET 7 */}
+        <div className="bg-white/10 backdrop-blur-xl rounded-3xl overflow-hidden border border-white/20 shadow-2xl hover:scale-105 duration-300">
+          <img
+            src="/assets/bird.png"
+            alt="bird"
+            className="w-full h-64 object-cover"
+          />
+
+          <div className="p-6">
+            <h2 className="text-3xl font-bold text-white mb-3">
+              Kiwi
+            </h2>
+
+            <p className="text-gray-200 mb-2">
+              Category: Bird
+            </p>
+
+            <p className="text-gray-200 mb-2">
+              Age: 6 Months
+            </p>
+
+            <p className="text-gray-200 mb-5">
+              Location: Rangpur
+            </p>
+
+            <button className="btn bg-blue-400 hover:bg-blue-500 border-none text-white w-full">
+              View Details
+            </button>
+          </div>
+        </div>
+
+        {/* PET 8 */}
+        <div className="bg-white/10 backdrop-blur-xl rounded-3xl overflow-hidden border border-white/20 shadow-2xl hover:scale-105 duration-300">
+          <img
+            src="/assets/rabbit.png"
+            alt="rabbit"
+            className="w-full h-64 object-cover"
+          />
+
+          <div className="p-6">
+            <h2 className="text-3xl font-bold text-white mb-3">
+              Bunny
+            </h2>
+
+            <p className="text-gray-200 mb-2">
+              Category: Rabbit
+            </p>
+
+            <p className="text-gray-200 mb-2">
+              Age: 1 Year
+            </p>
+
+            <p className="text-gray-200 mb-5">
+              Location: Mymensingh
+            </p>
+
+            <button className="btn bg-purple-400 hover:bg-purple-500 border-none text-white w-full">
+              View Details
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  );
+}
