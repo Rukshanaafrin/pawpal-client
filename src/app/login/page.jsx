@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useContext, useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
+import { useRouter } from "next/navigation";
 import { AuthContext } from "../../providers/AuthProvider";
 
 const LoginPage = () => {
@@ -11,9 +12,9 @@ const LoginPage = () => {
 
   const [showPassword, setShowPassword] = useState(false);
 
-  const handleLogin = (e) => {
+  const router = useRouter();
 
-    console.log("clicked");
+  const handleLogin = async (e) => {
 
     e.preventDefault();
 
@@ -22,23 +23,26 @@ const LoginPage = () => {
     const email = form.email.value;
     const password = form.password.value;
 
-    signInUser(email, password)
-      .then((result) => {
+    try {
 
-        console.log(result.user);
+      const result = await signInUser(email, password);
 
-        alert("Login Successful!");
+      console.log(result.user);
 
-        form.reset();
+      alert("Login Successful!");
 
-      })
-      .catch((error) => {
+      form.reset();
 
-        console.log(error.message);
+      router.push("/");
 
-        alert(error.message);
+    }
+    catch (error) {
 
-      });
+      console.log(error.message);
+
+      alert(error.message);
+
+    }
   };
 
   return (
@@ -68,8 +72,7 @@ const LoginPage = () => {
               type="email"
               name="email"
               placeholder="Enter your email"
-              
-              className="input input-bordered w-full bg-white/10 text-white"
+              className="input input-bordered w-full h-12 bg-white/10 text-white"
               required
             />
 
@@ -116,7 +119,7 @@ const LoginPage = () => {
 
           <button
             type="submit"
-            className="btn bg-cyan-400 hover:bg-cyan-500 border-none text-white w-full mt-3 cursor-pointer"
+            className="btn bg-cyan-400 hover:bg-cyan-500 border-none text-white w-full mt-3"
           >
             Login
           </button>
