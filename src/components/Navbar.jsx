@@ -72,14 +72,22 @@ const Navbar = () => {
             <>
               <Link
                 href="/add-pet"
-                className="hover:text-cyan-300 duration-300"
+                className={`font-semibold duration-300 ${
+                  pathname === "/add-pet"
+                    ? "text-cyan-300"
+                    : "text-white hover:text-cyan-300"
+                }`}
               >
                 Add Pet
               </Link>
 
               <Link
                 href="/my-requests"
-                className="hover:text-cyan-300 duration-300"
+                className={`font-semibold duration-300 ${
+                  pathname === "/my-requests"
+                    ? "text-cyan-300"
+                    : "text-white hover:text-cyan-300"
+                }`}
               >
                 My Requests
               </Link>
