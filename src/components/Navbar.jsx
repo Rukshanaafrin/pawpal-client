@@ -58,76 +58,76 @@ const Navbar = () => {
               : "text-white hover:text-cyan-300"
           }`}
         >
-
           <Search size={18} />
-
           All Pets
-
         </Link>
 
-        {/* USER LINKS */}
+        {/* PRIVATE LINKS */}
 
-        {
-          user && (
-            <>
-              <Link
-                href="/add-pet"
-                className={`font-semibold duration-300 ${
-                  pathname === "/add-pet"
-                    ? "text-cyan-300"
-                    : "text-white hover:text-cyan-300"
-                }`}
-              >
-                Add Pet
-              </Link>
+        {user && (
+          <>
+            <Link
+              href="/add-pet"
+              className={`font-semibold duration-300 ${
+                pathname === "/add-pet"
+                  ? "text-cyan-300"
+                  : "text-white hover:text-cyan-300"
+              }`}
+            >
+              Add Pet
+            </Link>
 
-              <Link
-                href="/my-requests"
-                className={`font-semibold duration-300 ${
-                  pathname === "/my-requests"
-                    ? "text-cyan-300"
-                    : "text-white hover:text-cyan-300"
-                }`}
-              >
-                My Requests
-              </Link>
-            </>
-          )
-        }
+            <Link
+              href="/my-listings"
+              className={`font-semibold duration-300 ${
+                pathname === "/my-listings"
+                  ? "text-cyan-300"
+                  : "text-white hover:text-cyan-300"
+              }`}
+            >
+              My Listings
+            </Link>
+
+            <Link
+              href="/my-requests"
+              className={`font-semibold duration-300 ${
+                pathname === "/my-requests"
+                  ? "text-cyan-300"
+                  : "text-white hover:text-cyan-300"
+              }`}
+            >
+              My Requests
+            </Link>
+          </>
+        )}
 
         {/* LOGIN / USER */}
 
-        {
-          user ? (
+        {user ? (
+          <div className="flex items-center gap-3">
 
-            <div className="flex items-center gap-3">
+            <img
+              src={user?.photoURL}
+              alt="user"
+              className="w-10 h-10 rounded-full border-2 border-cyan-400"
+            />
 
-              <img
-                src={user?.photoURL}
-                alt="user"
-                className="w-10 h-10 rounded-full border-2 border-cyan-400"
-              />
-
-              <button
-                onClick={logOut}
-                className="btn bg-cyan-400 hover:bg-cyan-500 border-none text-white"
-              >
-                Logout
-              </button>
-
-            </div>
-
-          ) : (
-
-            <Link
-              href="/login"
+            <button
+              onClick={logOut}
               className="btn bg-cyan-400 hover:bg-cyan-500 border-none text-white"
             >
-              Login
-            </Link>
+              Logout
+            </button>
 
-          )
-        }
+          </div>
+        ) : (
+          <Link
+            href="/login"
+            className="btn bg-cyan-400 hover:bg-cyan-500 border-none text-white"
+          >
+            Login
+          </Link>
+        )}
 
       </div>
 
