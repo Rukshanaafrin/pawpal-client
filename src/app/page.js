@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 export default function Home() {
   return (
@@ -9,13 +12,21 @@ export default function Home() {
 
         <div className="hero-content flex-col lg:flex-row-reverse gap-20">
 
-          <img
+          <motion.img
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1 }}
             src="/assets/hero-pet.jpg"
             alt="Cute Pet"
             className="w-[380px] h-[380px] object-cover rounded-[40px] shadow-2xl border-4 border-cyan-300/30"
           />
 
-          <div>
+
+          <motion.div
+            initial={{ opacity: 0, x: -100 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1 }}
+          >
 
             <h1 className="text-6xl lg:text-7xl font-extrabold leading-tight text-white">
 
@@ -52,8 +63,7 @@ export default function Home() {
               </button>
 
             </div>
-
-          </div>
+          </motion.div>
 
         </div>
 
