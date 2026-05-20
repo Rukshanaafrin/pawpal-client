@@ -120,7 +120,7 @@ export default async function PetDetailsPage({ params }) {
             </div>
 
             <Link
-              href="/login"
+              href="/adopt"
               className="btn bg-cyan-400 hover:bg-cyan-500 border-none text-white mt-8"
             >
               Adopt Now

@@ -146,6 +146,262 @@ export default function Home() {
 
         </div>
 
+
+        {/* FEATURED PETS */}
+        <div className="mt-28">
+
+          <h2 className="text-5xl font-extrabold text-center mb-16 text-white">
+            Featured Pets
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <div className="bg-white/10 backdrop-blur-xl rounded-3xl overflow-hidden">
+              <img src="/assets/dog1.png" className="w-full h-60 object-cover" />
+              <div className="p-5 text-white">
+                <h3 className="text-2xl font-bold">Max</h3>
+                <p>Golden Retriever</p>
+              </div>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur-xl rounded-3xl overflow-hidden">
+              <img src="/assets/cat1.png" className="w-full h-60 object-cover" />
+              <div className="p-5 text-white">
+                <h3 className="text-2xl font-bold">Snowy</h3>
+                <p>Persian Cat</p>
+              </div>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur-xl rounded-3xl overflow-hidden">
+              <img src="/assets/bird1.png" className="w-full h-60 object-cover" />
+              <div className="p-5 text-white">
+                <h3 className="text-2xl font-bold">Ruby</h3>
+                <p>Northern Cardinal</p>
+              </div>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur-xl rounded-3xl overflow-hidden">
+              <img src="/assets/rabbit1.png" className="w-full h-60 object-cover" />
+              <div className="p-5 text-white">
+                <h3 className="text-2xl font-bold">Coco</h3>
+                <p>Netherland Dwarf</p>
+              </div>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur-xl rounded-3xl overflow-hidden">
+              <img src="/assets/dog2.png" className="w-full h-60 object-cover" />
+              <div className="p-5 text-white">
+                <h3 className="text-2xl font-bold">Buddy</h3>
+                <p>Labrador Retriever</p>
+              </div>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur-xl rounded-3xl overflow-hidden">
+              <img src="/assets/cat2.png" className="w-full h-60 object-cover" />
+              <div className="p-5 text-white">
+                <h3 className="text-2xl font-bold">Luna</h3>
+                <p>Turkish Angora</p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        {/* WHY ADOPT PETS */}
+        <div className="mt-28">
+
+          <h2 className="text-5xl font-extrabold text-center mb-16 text-white">
+            Why Adopt Pets
+          </h2>
+
+          <div className="grid md:grid-cols-3 gap-8">
+
+            <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-8 text-center hover:scale-105 duration-300 shadow-xl">
+              <div className="text-6xl mb-4">❤️</div>
+              <h3 className="text-3xl font-bold text-white mb-4">
+                Save Lives
+              </h3>
+              <p className="text-gray-200 leading-7">
+                Give homeless pets a loving forever home and help animals find safety.
+              </p>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-8 text-center hover:scale-105 duration-300 shadow-xl">
+              <div className="text-6xl mb-4">🐶</div>
+              <h3 className="text-3xl font-bold text-white mb-4">
+                Loving Companions
+              </h3>
+              <p className="text-gray-200 leading-7">
+                Pets provide friendship, emotional support and unconditional love.
+              </p>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-8 text-center hover:scale-105 duration-300 shadow-xl">
+              <div className="text-6xl mb-4">🏃</div>
+              <h3 className="text-3xl font-bold text-white mb-4">
+                Healthy Lifestyle
+              </h3>
+              <p className="text-gray-200 leading-7">
+                Daily walks, exercise and playtime improve physical and mental health.
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+
+        {/* SUCCESS STORIES */}
+        <div className="mt-28">
+
+          <h2 className="text-5xl font-extrabold text-center mb-16 text-white">
+            Success Stories
+          </h2>
+
+          <div className="grid md:grid-cols-3 gap-8">
+
+            <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-8 text-white hover:scale-105 duration-300 shadow-xl">
+              <div className="text-5xl mb-4">🐕</div>
+              <h3 className="text-2xl font-bold mb-3">Max's Journey</h3>
+              <p>
+                Max found a caring family and now enjoys daily adventures with endless love.
+              </p>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-8 text-white hover:scale-105 duration-300 shadow-xl">
+              <div className="text-5xl mb-4">🐱</div>
+              <h3 className="text-2xl font-bold mb-3">Luna's Story</h3>
+              <p>
+                Luna became the most loved member of her new family and enjoys every day.
+              </p>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-8 text-white hover:scale-105 duration-300 shadow-xl">
+              <div className="text-5xl mb-4">🐰</div>
+              <h3 className="text-2xl font-bold mb-3">Coco's Happiness</h3>
+              <p>
+                Coco now happily lives with children who adore and care for him.
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+
+        {/* PET CARE TIPS */}
+        <div className="mt-28">
+
+          <h2 className="text-5xl font-extrabold text-center mb-16 text-white">
+            Pet Care Tips
+          </h2>
+
+          <div className="grid md:grid-cols-3 gap-8">
+
+            <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-8 text-white hover:scale-105 duration-300 shadow-xl">
+              <div className="text-5xl mb-4">🥗</div>
+              <h3 className="text-2xl font-bold mb-3">Healthy Nutrition</h3>
+              <p>
+                Provide nutritious food and fresh water every day.
+              </p>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-8 text-white hover:scale-105 duration-300 shadow-xl">
+              <div className="text-5xl mb-4">💉</div>
+              <h3 className="text-2xl font-bold mb-3">Vaccination</h3>
+              <p>
+                Keep vaccinations and regular health checkups updated.
+              </p>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-8 text-white hover:scale-105 duration-300 shadow-xl">
+              <div className="text-5xl mb-4">🎾</div>
+              <h3 className="text-2xl font-bold mb-3">Daily Exercise</h3>
+              <p>
+                Ensure daily exercise and playtime for a happy pet.
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+
+        {/* ADOPTION PROCESS */}
+        <div className="mt-28">
+
+          <h2 className="text-5xl font-extrabold text-center mb-16 text-white">
+            Adoption Process
+          </h2>
+
+          <div className="grid md:grid-cols-4 gap-6">
+
+            <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-8 text-center text-white hover:scale-105 duration-300 shadow-xl">
+              <div className="text-5xl mb-3">🔍</div>
+              <h3 className="font-bold text-xl">Browse Pets</h3>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-8 text-center text-white hover:scale-105 duration-300 shadow-xl">
+              <div className="text-5xl mb-3">📝</div>
+              <h3 className="font-bold text-xl">Submit Request</h3>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-8 text-center text-white hover:scale-105 duration-300 shadow-xl">
+              <div className="text-5xl mb-3">🤝</div>
+              <h3 className="font-bold text-xl">Meet Pet</h3>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-8 text-center text-white hover:scale-105 duration-300 shadow-xl">
+              <div className="text-5xl mb-3">🏡</div>
+              <h3 className="font-bold text-xl">Take Home</h3>
+            </div>
+
+          </div>
+
+        </div>
+
+        {/* WHY CHOOSE PAWPAL */}
+        <div className="mt-28">
+
+          <h2 className="text-5xl font-extrabold text-center mb-16 text-white">
+            Why Choose PawPal
+          </h2>
+
+          <div className="grid md:grid-cols-3 gap-8">
+
+            <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-8 text-center text-white hover:scale-105 duration-300 shadow-xl">
+              <div className="text-5xl mb-4">🛡️</div>
+              <h3 className="text-2xl font-bold mb-3">
+                Trusted Platform
+              </h3>
+              <p>
+                Safe and reliable pet adoption experience for everyone.
+              </p>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-8 text-center text-white hover:scale-105 duration-300 shadow-xl">
+              <div className="text-5xl mb-4">✔️</div>
+              <h3 className="text-2xl font-bold mb-3">
+                Verified Listings
+              </h3>
+              <p>
+                Every pet listing is carefully reviewed and verified.
+              </p>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-8 text-center text-white hover:scale-105 duration-300 shadow-xl">
+              <div className="text-5xl mb-4">🔒</div>
+              <h3 className="text-2xl font-bold mb-3">
+                Secure Adoption
+              </h3>
+              <p>
+                Easy and secure adoption process from start to finish.
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+
+
       </div>
 
     </div>

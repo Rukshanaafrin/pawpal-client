@@ -7,17 +7,13 @@ import { AuthContext } from "@/providers/AuthProvider";
 import { Search } from "lucide-react";
 
 const Navbar = () => {
-
   const { user, logOut } = useContext(AuthContext);
 
   const pathname = usePathname();
 
   return (
-
     <div className="navbar sticky top-0 z-50 px-8 py-3 text-white border-b border-purple-400/20 bg-gradient-to-r from-purple-900/40 via-fuchsia-900/30 to-indigo-900/40 backdrop-blur-xl shadow-lg">
-
       <div className="flex-1 flex items-center gap-3">
-
         <img
           src="/assets/logo.png"
           alt="PawPal Logo"
@@ -30,13 +26,9 @@ const Navbar = () => {
         >
           PawPal
         </Link>
-
       </div>
 
       <div className="flex items-center gap-6 text-lg">
-
-        {/* HOME */}
-
         <Link
           href="/"
           className={`font-semibold duration-300 ${
@@ -47,8 +39,6 @@ const Navbar = () => {
         >
           Home
         </Link>
-
-        {/* ALL PETS */}
 
         <Link
           href="/pets"
@@ -61,8 +51,6 @@ const Navbar = () => {
           <Search size={18} />
           All Pets
         </Link>
-
-        {/* PRIVATE LINKS */}
 
         {user && (
           <>
@@ -101,15 +89,20 @@ const Navbar = () => {
           </>
         )}
 
-        {/* LOGIN / USER */}
-
         {user ? (
           <div className="flex items-center gap-3">
-
             <img
-              src={user?.photoURL}
+              src={
+                user?.photoURL
+                  ? user.photoURL
+                  : "https://i.ibb.co/4pDNDk1/avatar.png"
+              }
               alt="user"
-              className="w-10 h-10 rounded-full border-2 border-cyan-400"
+              className="w-10 h-10 rounded-full border-2 border-cyan-400 object-cover"
+              onError={(e) => {
+                e.target.src =
+                  "https://i.ibb.co/4pDNDk1/avatar.png";
+              }}
             />
 
             <button
@@ -118,7 +111,6 @@ const Navbar = () => {
             >
               Logout
             </button>
-
           </div>
         ) : (
           <Link
@@ -128,9 +120,7 @@ const Navbar = () => {
             Login
           </Link>
         )}
-
       </div>
-
     </div>
   );
 };

@@ -1,21 +1,49 @@
-export default function MyListingsPage() {
+"use client";
 
-  const pets = [
-    {
-      id: 1,
-      name: "Max",
-      image: "https://i.ibb.co.com/Y7PDPF7j/dog1.jpg",
-      price: 6000,
-      status: "Available",
-    },
-    {
-      id: 2,
-      name: "Snowy",
-      image: "https://i.ibb.co.com/0yH939K3/cat1.jpg",
-      price: 3000,
-      status: "Available",
-    },
-  ];
+import { useEffect, useState } from "react";
+import Link from "next/link";
+import { toast } from "react-toastify";
+
+export default function MyListingsPage() {
+  const [pets, setPets] = useState([]);
+  const [requestStatus, setRequestStatus] = useState("Pending");
+
+  useEffect(() => {
+    fetch("http://localhost:5000/pets")
+      .then((res) => res.json())
+      .then((data) => setPets(data));
+  }, []);
+
+  const handleDelete = async (id) => {
+    const confirmDelete = confirm(
+      "Are you sure you want to delete this pet?"
+    );
+
+    if (!confirmDelete) return;
+
+    const res = await fetch(
+      `http://localhost:5000/pets/${id}`,
+      {
+        method: "DELETE",
+      }
+    );
+
+    const data = await res.json();
+
+    if (data.deletedCount > 0) {
+      toast.success("Pet Deleted Successfully!");
+
+      const remainingPets = pets.filter(
+        (pet) => pet._id !== id
+      );
+
+      setPets(remainingPets);
+    }
+  };
+
+  const totalListings = pets.length;
+  const availablePets = pets.length;
+  const adoptedPets = 0;
 
   return (
     <div className="px-6 lg:px-20 py-12 text-white">
@@ -30,21 +58,21 @@ export default function MyListingsPage() {
 
         <div className="bg-white/10 rounded-2xl p-6 text-center">
           <h2 className="text-3xl font-bold text-cyan-300">
-            2
+            {totalListings}
           </h2>
           <p>Total Listings</p>
         </div>
 
         <div className="bg-white/10 rounded-2xl p-6 text-center">
           <h2 className="text-3xl font-bold text-green-300">
-            2
+            {availablePets}
           </h2>
           <p>Available</p>
         </div>
 
         <div className="bg-white/10 rounded-2xl p-6 text-center">
           <h2 className="text-3xl font-bold text-pink-300">
-            0
+            {adoptedPets}
           </h2>
           <p>Adopted</p>
         </div>
@@ -58,7 +86,7 @@ export default function MyListingsPage() {
         {pets.map((pet) => (
 
           <div
-            key={pet.id}
+            key={pet._id}
             className="bg-white/10 rounded-2xl overflow-hidden border border-white/10"
           >
 
@@ -75,16 +103,23 @@ export default function MyListingsPage() {
               </h2>
 
               <p>
-                Adoption Fee: ৳{pet.price}
+                Adoption Fee: ৳{pet.adoptionFee}
               </p>
 
               <p className="mb-4">
-                Status: {pet.status}
+                Status: Available
               </p>
 
               <div className="flex flex-wrap gap-2">
 
-                <button className="btn btn-sm bg-cyan-500 border-none text-white">
+                <button
+                  onClick={() =>
+                    document
+                      .getElementById("request_modal")
+                      .showModal()
+                  }
+                  className="btn btn-sm bg-cyan-500 border-none text-white"
+                >
                   Requests
                 </button>
 
@@ -92,11 +127,19 @@ export default function MyListingsPage() {
                   Edit
                 </button>
 
-                <button className="btn btn-sm btn-info">
+                <Link
+                  href={`/pets/${pet._id}`}
+                  className="btn btn-sm btn-info"
+                >
                   View
-                </button>
+                </Link>
 
-                <button className="btn btn-sm btn-error text-white">
+                <button
+                  onClick={() =>
+                    handleDelete(pet._id)
+                  }
+                  className="btn btn-sm btn-error text-white"
+                >
                   Delete
                 </button>
 
@@ -109,6 +152,70 @@ export default function MyListingsPage() {
         ))}
 
       </div>
+
+      {/* REQUEST MODAL */}
+
+      <dialog
+        id="request_modal"
+        className="modal"
+      >
+        <div className="modal-box text-black">
+
+          <h3 className="font-bold text-xl mb-4">
+            Adoption Requests
+          </h3>
+
+          <p>
+            <strong>Name:</strong> Rahim Ahmed
+          </p>
+
+          <p>
+            <strong>Email:</strong> rahim@gmail.com
+          </p>
+
+          <p>
+            <strong>Pickup Date:</strong> 2026-06-20
+          </p>
+
+          <p>
+            <strong>Status:</strong> {requestStatus}
+          </p>
+
+          {requestStatus === "Pending" && (
+            <div className="flex gap-3 mt-5">
+
+              <button
+                onClick={() =>
+                  setRequestStatus("Approved")
+                }
+                className="btn btn-success"
+              >
+                Approve
+              </button>
+
+              <button
+                onClick={() =>
+                  setRequestStatus("Rejected")
+                }
+                className="btn btn-error text-white"
+              >
+                Reject
+              </button>
+
+            </div>
+          )}
+
+          <form
+            method="dialog"
+            className="mt-5"
+          >
+            <button className="btn">
+              Close
+            </button>
+          </form>
+
+        </div>
+      </dialog>
 
     </div>
   );

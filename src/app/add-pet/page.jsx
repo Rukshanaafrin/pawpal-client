@@ -1,14 +1,19 @@
 "use client";
 
 import { useContext } from "react";
+import { useRouter } from "next/navigation";
 import { AuthContext } from "@/providers/AuthProvider";
 import { toast } from "react-toastify";
+import PrivateRoute from "@/components/PrivateRoute";
 
-export default function AddPetPage() {
+function AddPetContent() {
 
   const { user } = useContext(AuthContext);
 
+  const router = useRouter();
+
   const handleAddPet = async (e) => {
+
     e.preventDefault();
 
     const form = e.target;
@@ -43,23 +48,23 @@ export default function AddPetPage() {
           toast.success("Pet Added Successfully!");
 
           form.reset();
-        }
 
+          setTimeout(() => {
+            router.push("/my-listings");
+          }, 1000);
+        }
       })
       .catch(() => {
-
         toast.error("Failed to add pet!");
-
       });
   };
 
   return (
-
     <div className="min-h-screen flex justify-center items-center px-4 py-10">
 
       <form
         onSubmit={handleAddPet}
-        className="space-y-4 w-full max-w-2xl bg-blue rounded-2xl p-6 shadow-xl"
+        className="space-y-4 w-full max-w-2xl bg-white/10 backdrop-blur-xl rounded-2xl p-6 shadow-xl border border-white/20"
       >
 
         <h1 className="text-3xl font-bold text-center text-white mb-4">
@@ -109,7 +114,7 @@ export default function AddPetPage() {
         <input
           type="text"
           name="image"
-          placeholder="Image URL (ImgBB/PostImage)"
+          placeholder="Image URL"
           className="input input-bordered w-full text-black"
           required
         />
@@ -170,5 +175,13 @@ export default function AddPetPage() {
       </form>
 
     </div>
+  );
+}
+
+export default function AddPetPage() {
+  return (
+    <PrivateRoute>
+      <AddPetContent />
+    </PrivateRoute>
   );
 }

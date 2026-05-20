@@ -1,26 +1,24 @@
+"use client";
+
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import PrivateRoute from "@/components/PrivateRoute";
 
-export default function MyRequestsPage() {
+function MyRequestsContent() {
 
-  const requests = [
-    {
-      id: 1,
-      petName: "Max",
-      requestDate: "2026-05-19",
-      pickupDate: "2026-06-20",
-      status: "Pending",
-    },
-    {
-      id: 2,
-      petName: "Luna",
-      requestDate: "2026-05-18",
-      pickupDate: "2026-06-25",
-      status: "Approved",
-    },
-  ];
+  const [requests, setRequests] = useState([]);
+
+  useEffect(() => {
+
+    const savedRequests =
+      JSON.parse(localStorage.getItem("requests")) || [];
+
+    setRequests(savedRequests);
+
+  }, []);
 
   return (
-    <div className="px-6 lg:px-20 py-12 text-white">
+    <div className="px-6 lg:px-20 py-12 text-white min-h-screen">
 
       <h1 className="text-4xl font-bold mb-8">
         My Requests
@@ -28,76 +26,63 @@ export default function MyRequestsPage() {
 
       <div className="overflow-x-auto">
 
-        <table className="table">
+        <table className="table text-white">
 
           <thead>
             <tr className="text-cyan-300">
-
               <th>Pet Name</th>
               <th>Request Date</th>
               <th>Pickup Date</th>
               <th>Status</th>
               <th>View</th>
-              <th>Cancel</th>
-
             </tr>
           </thead>
 
           <tbody>
 
             {requests.map((request) => (
-
               <tr key={request.id}>
-
                 <td>{request.petName}</td>
-
                 <td>{request.requestDate}</td>
-
                 <td>{request.pickupDate}</td>
 
                 <td>
-
-                  <span
-                    className={`badge ${
-                      request.status === "Approved"
-                        ? "badge-success"
-                        : "badge-warning"
-                    }`}
-                  >
+                  <span className="badge badge-warning">
                     {request.status}
                   </span>
-
                 </td>
 
                 <td>
-
                   <Link
                     href="/pets"
                     className="btn btn-sm bg-cyan-500 border-none text-white"
                   >
                     View
                   </Link>
-
                 </td>
-
-                <td>
-
-                  <button className="btn btn-sm btn-error text-white">
-                    Cancel
-                  </button>
-
-                </td>
-
               </tr>
-
             ))}
 
           </tbody>
 
         </table>
 
+        {requests.length === 0 && (
+          <p className="text-center mt-10 text-gray-300">
+            No requests found.
+          </p>
+        )}
+
       </div>
 
     </div>
+  );
+}
+
+export default function MyRequestsPage() {
+  return (
+    <PrivateRoute>
+      <MyRequestsContent />
+    </PrivateRoute>
   );
 }
