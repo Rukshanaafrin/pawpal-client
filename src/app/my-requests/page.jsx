@@ -9,15 +9,23 @@ export default function MyRequestsPage() {
   const [requests, setRequests] = useState([]);
 
   useEffect(() => {
-
-    fetch("http://localhost:5000/requests")
+    fetch("http://localhost:5000/requests", {
+      credentials: "include",
+    })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
-        setRequests(data);
-      })
-      .catch((error) => console.log(error));
+        console.log("REQUEST DATA:", data);
 
+        if (Array.isArray(data)) {
+          setRequests(data);
+        } else {
+          setRequests([]);
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        setRequests([]);
+      });
   }, []);
 
   const handleCancel = async (id) => {
@@ -88,51 +96,52 @@ export default function MyRequestsPage() {
 
           <tbody>
 
-            {requests.map((request) => (
+            {Array.isArray(requests) &&
+              requests.map((request) => (
 
-              <tr key={request._id}>
+                <tr key={request._id}>
 
-                <td>{request.petName}</td>
+                  <td>{request.petName}</td>
 
-                <td>{request.requestDate}</td>
+                  <td>{request.requestDate}</td>
 
-                <td>{request.pickupDate}</td>
+                  <td>{request.pickupDate}</td>
 
-                <td>
+                  <td>
 
-                  <span className="badge badge-warning">
-                    {request.status}
-                  </span>
+                    <span className="badge badge-warning">
+                      {request.status}
+                    </span>
 
-                </td>
+                  </td>
 
-                <td>
+                  <td>
 
-                  <Link
-                    href={`/pets/${request.petId}`}
-                    className="btn btn-sm bg-cyan-500 border-none text-white"
-                  >
-                    View
-                  </Link>
+                    <Link
+                      href={`/pets/${request.petId}`}
+                      className="btn btn-sm bg-cyan-500 border-none text-white"
+                    >
+                      View
+                    </Link>
 
-                </td>
+                  </td>
 
-                <td>
+                  <td>
 
-                  <button
-                    onClick={() =>
-                      handleCancel(request._id)
-                    }
-                    className="btn btn-sm bg-red-500 hover:bg-red-600 border-none text-white"
-                  >
-                    Cancel
-                  </button>
+                    <button
+                      onClick={() =>
+                        handleCancel(request._id)
+                      }
+                      className="btn btn-sm bg-red-500 hover:bg-red-600 border-none text-white"
+                    >
+                      Cancel
+                    </button>
 
-                </td>
+                  </td>
 
-              </tr>
+                </tr>
 
-            ))}
+              ))}
 
           </tbody>
 

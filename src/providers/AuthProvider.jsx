@@ -1,5 +1,7 @@
 "use client";
 
+import axios from "axios";
+
 import {
   createContext,
   useEffect,
@@ -47,22 +49,70 @@ const AuthProvider = ({ children }) => {
   };
 
   const googleLogin = () => {
-    return signInWithPopup(auth, googleProvider);
+    return signInWithPopup(
+      auth,
+      googleProvider
+    );
   };
 
-  const logOut = () => {
+  const logOut = async () => {
+
+    try {
+
+      await axios.post(
+        "http://localhost:5000/logout",
+        {},
+        {
+          withCredentials: true,
+        }
+      );
+
+    } catch (error) {
+
+      console.log(error);
+
+    }
+
     return signOut(auth);
+
   };
 
   useEffect(() => {
 
-    const unsubscribe = onAuthStateChanged(
-      auth,
-      (currentUser) => {
-        setUser(currentUser);
-        setLoading(false);
-      }
-    );
+    const unsubscribe =
+      onAuthStateChanged(
+        auth,
+        async (currentUser) => {
+
+          setUser(currentUser);
+
+          if (currentUser?.email) {
+
+            try {
+
+              await axios.post(
+                "http://localhost:5000/jwt",
+                {
+                  email:
+                    currentUser.email,
+                },
+                {
+                  withCredentials: true,
+                }
+              );
+
+            } catch (error) {
+
+              console.log(error);
+
+            }
+
+          }
+
+          setLoading(false);
+
+        }
+      );
 
     return () => {
       unsubscribe();
@@ -80,7 +130,9 @@ const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={authInfo}>
+    <AuthContext.Provider
+      value={authInfo}
+    >
       {children}
     </AuthContext.Provider>
   );
