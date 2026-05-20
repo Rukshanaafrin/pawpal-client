@@ -123,9 +123,12 @@ export default function MyListingsPage() {
                   Requests
                 </button>
 
-                <button className="btn btn-sm btn-warning">
+                <Link
+                  href={`/update-pet/${pet._id}`}
+                  className="btn btn-sm btn-warning"
+                >
                   Edit
-                </button>
+                </Link>
 
                 <Link
                   href={`/pets/${pet._id}`}

@@ -6,6 +6,7 @@ import { Eye, EyeOff } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { updateProfile } from "firebase/auth";
 import { AuthContext } from "../../providers/AuthProvider";
+import { toast } from "react-toastify";
 
 const RegisterPage = () => {
 
@@ -25,6 +26,39 @@ const RegisterPage = () => {
     const photo = form.photo.value;
     const email = form.email.value;
     const password = form.password.value;
+    const confirmPassword = form.confirmPassword.value;
+
+    // Password Match
+
+    if (password !== confirmPassword) {
+      toast.error("Passwords do not match");
+      return;
+    }
+
+    // Minimum 6 Characters
+
+    if (password.length < 6) {
+      toast.error("Password must be at least 6 characters");
+      return;
+    }
+
+    // Uppercase Check
+
+    if (!/[A-Z]/.test(password)) {
+      toast.error(
+        "Password must contain at least one uppercase letter"
+      );
+      return;
+    }
+
+    // Lowercase Check
+
+    if (!/[a-z]/.test(password)) {
+      toast.error(
+        "Password must contain at least one lowercase letter"
+      );
+      return;
+    }
 
     try {
 
@@ -35,18 +69,18 @@ const RegisterPage = () => {
         photoURL: photo,
       });
 
-      alert("Registration Successful!");
+      toast.success("Registration Successful!");
 
       form.reset();
 
-      router.push("/");
+      setTimeout(() => {
+        router.push("/");
+      }, 1000);
 
     }
     catch (error) {
 
-      console.log(error.message);
-
-      alert(error.message);
+      toast.error(error.message);
 
     }
   };
@@ -154,6 +188,24 @@ const RegisterPage = () => {
               </button>
 
             </div>
+
+          </div>
+
+          {/* CONFIRM PASSWORD */}
+
+          <div>
+
+            <label className="block mb-2 font-semibold">
+              Confirm Password
+            </label>
+
+            <input
+              type={showPassword ? "text" : "password"}
+              name="confirmPassword"
+              placeholder="Confirm Password"
+              className="input input-bordered w-full h-12 bg-white/10 text-white"
+              required
+            />
 
           </div>
 

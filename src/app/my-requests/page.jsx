@@ -2,22 +2,65 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import PrivateRoute from "@/components/PrivateRoute";
+import { toast } from "react-toastify";
 
-function MyRequestsContent() {
+export default function MyRequestsPage() {
 
   const [requests, setRequests] = useState([]);
 
   useEffect(() => {
 
-    const savedRequests =
-      JSON.parse(localStorage.getItem("requests")) || [];
-
-    setRequests(savedRequests);
+    fetch("http://localhost:5000/requests")
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setRequests(data);
+      })
+      .catch((error) => console.log(error));
 
   }, []);
 
+  const handleCancel = async (id) => {
+
+    const confirmDelete = confirm(
+      "Are you sure you want to cancel this request?"
+    );
+
+    if (!confirmDelete) return;
+
+    try {
+
+      await fetch(
+        `http://localhost:5000/requests/${id}`,
+        {
+          method: "DELETE",
+        }
+      );
+
+      setRequests(
+        requests.filter(
+          (request) => request._id !== id
+        )
+      );
+
+      toast.success(
+        "Request Cancelled Successfully!"
+      );
+
+    } catch (error) {
+
+      console.log(error);
+
+      toast.error(
+        "Failed to cancel request!"
+      );
+
+    }
+
+  };
+
   return (
+
     <div className="px-6 lg:px-20 py-12 text-white min-h-screen">
 
       <h1 className="text-4xl font-bold mb-8">
@@ -29,38 +72,66 @@ function MyRequestsContent() {
         <table className="table text-white">
 
           <thead>
+
             <tr className="text-cyan-300">
+
               <th>Pet Name</th>
               <th>Request Date</th>
               <th>Pickup Date</th>
               <th>Status</th>
               <th>View</th>
+              <th>Cancel</th>
+
             </tr>
+
           </thead>
 
           <tbody>
 
             {requests.map((request) => (
-              <tr key={request.id}>
+
+              <tr key={request._id}>
+
                 <td>{request.petName}</td>
+
                 <td>{request.requestDate}</td>
+
                 <td>{request.pickupDate}</td>
 
                 <td>
+
                   <span className="badge badge-warning">
                     {request.status}
                   </span>
+
                 </td>
 
                 <td>
+
                   <Link
-                    href="/pets"
+                    href={`/pets/${request.petId}`}
                     className="btn btn-sm bg-cyan-500 border-none text-white"
                   >
                     View
                   </Link>
+
                 </td>
+
+                <td>
+
+                  <button
+                    onClick={() =>
+                      handleCancel(request._id)
+                    }
+                    className="btn btn-sm bg-red-500 hover:bg-red-600 border-none text-white"
+                  >
+                    Cancel
+                  </button>
+
+                </td>
+
               </tr>
+
             ))}
 
           </tbody>
@@ -68,21 +139,16 @@ function MyRequestsContent() {
         </table>
 
         {requests.length === 0 && (
+
           <p className="text-center mt-10 text-gray-300">
             No requests found.
           </p>
+
         )}
 
       </div>
 
     </div>
-  );
-}
 
-export default function MyRequestsPage() {
-  return (
-    <PrivateRoute>
-      <MyRequestsContent />
-    </PrivateRoute>
   );
 }
