@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 async function getPet(id) {
-  const res = await fetch(`http://localhost:5000/pets/${id}`, {
+  const res = await fetch(`https://pawpal-server-bay.vercel.app/pets/${id}`, {
     cache: "no-store",
   });
 

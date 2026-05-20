@@ -11,7 +11,7 @@ export default function UpdatePetPage() {
   const [pet, setPet] = useState(null);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/pets/${id}`)
+    fetch(`https://pawpal-server-bay.vercel.app/pets/${id}`)
       .then((res) => res.json())
       .then((data) => setPet(data));
   }, [id]);
@@ -35,7 +35,7 @@ export default function UpdatePetPage() {
     };
 
     const res = await fetch(
-      `http://localhost:5000/pets/${id}`,
+      `https://pawpal-server-bay.vercel.app/pets/${id}`,
       {
         method: "PUT",
         headers: {

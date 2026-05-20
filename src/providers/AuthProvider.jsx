@@ -60,7 +60,7 @@ const AuthProvider = ({ children }) => {
     try {
 
       await axios.post(
-        "http://localhost:5000/logout",
+        "https://pawpal-server-bay.vercel.app/logout",
         {},
         {
           withCredentials: true,
@@ -91,7 +91,7 @@ const AuthProvider = ({ children }) => {
             try {
 
               await axios.post(
-                "http://localhost:5000/jwt",
+                "https://pawpal-server-bay.vercel.app/jwt",
                 {
                   email:
                     currentUser.email,

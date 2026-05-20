@@ -9,7 +9,7 @@ export default function MyRequestsPage() {
   const [requests, setRequests] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/requests", {
+    fetch("https://pawpal-server-bay.vercel.app/requests", {
       credentials: "include",
     })
       .then((res) => res.json())
@@ -39,7 +39,7 @@ export default function MyRequestsPage() {
     try {
 
       await fetch(
-        `http://localhost:5000/requests/${id}`,
+        `https://pawpal-server-bay.vercel.app/requests/${id}`,
         {
           method: "DELETE",
         }

@@ -9,7 +9,7 @@ export default function MyListingsPage() {
   const [requestStatus, setRequestStatus] = useState("Pending");
 
   useEffect(() => {
-    fetch("http://localhost:5000/pets")
+    fetch("https://pawpal-server-bay.vercel.app/pets")
       .then((res) => res.json())
       .then((data) => setPets(data));
   }, []);
@@ -22,7 +22,7 @@ export default function MyListingsPage() {
     if (!confirmDelete) return;
 
     const res = await fetch(
-      `http://localhost:5000/pets/${id}`,
+      `https://pawpal-server-bay.vercel.app/pets/${id}`,
       {
         method: "DELETE",
       }

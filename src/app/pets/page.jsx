@@ -12,7 +12,7 @@ export default function PetsPage() {
   useEffect(() => {
 
     fetch(
-      `http://localhost:5000/pets?search=${search}&species=${species}`
+      `https://pawpal-server-bay.vercel.app/pets?search=${search}&species=${species}`
     )
       .then((res) => res.json())
       .then((data) => setPets(data));

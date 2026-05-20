@@ -46,7 +46,7 @@ export default function AdoptPage() {
     try {
 
       const res = await fetch(
-        "http://localhost:5000/requests",
+        "https://pawpal-server-bay.vercel.app/requests",
         {
           method: "POST",
           headers: {
