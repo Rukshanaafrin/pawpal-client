@@ -18,7 +18,7 @@ export default function AdoptPage() {
 
   useEffect(() => {
 
-    fetch(`http://localhost:5000/pets/${id}`)
+    fetch(`https://pawpal-server-bay.vercel.app/pets/${id}`)
       .then((res) => res.json())
       .then((data) => setPet(data));
 

@@ -33,7 +33,7 @@ function AddPetContent() {
       ownerEmail: user?.email,
     };
 
-    fetch("http://localhost:5000/pets", {
+    fetch("https://pawpal-server-bay.vercel.app/pets", {
       method: "POST",
       headers: {
         "content-type": "application/json",
